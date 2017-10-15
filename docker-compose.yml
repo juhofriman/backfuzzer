@@ -1,0 +1,12 @@
+version: '3'
+services:
+  upstream:
+    build: test-upstream
+    ports:
+    - "4000:4000"
+  fuzzer:
+    build: backfuzzer-proxy
+    ports:
+    - "5000:5000"
+    links:
+    - upstream
